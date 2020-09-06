@@ -28,6 +28,11 @@ spring:
 
 
 mybatis-plus:
+  mapper-locations: classpath:mapper/*.xml
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
+    # 指定全局配置文件位置
+#    config-location: classpath:mybatis/mybatis-config.xml
+    # 指定sql映射文件位置
+#    mapper-locations: classpath:mybatis/mapper/*.xml

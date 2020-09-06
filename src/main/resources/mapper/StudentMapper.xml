@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.kehui.importandexport.mapper.StudentMapper">
+
+    <!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.kehui.importandexport.entity.StudentVO" id="listStudent">
+        <result property="student.id" column="id"/>
+        <result property="student.name" column="name"/>
+        <result property="student.birth" column="birth"/>
+        <result property="student.sex" column="sex"/>
+        <result property="studentCode.code" column="code"/>
+    </resultMap>
+
+    <select id="selectStudentList" resultMap="listStudent">
+        SELECT
+            s.id,
+            s.`name`,
+            s.birth,
+            s.sex,
+            sc.`code`
+        FROM
+            `student` s
+	    LEFT JOIN student_code sc ON sc.s_id = s.id
+    </select>
+
+</mapper>
